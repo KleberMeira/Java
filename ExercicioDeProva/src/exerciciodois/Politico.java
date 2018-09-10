@@ -23,6 +23,7 @@ public class Politico {
 	
 
 	
+	
 	public String getPartido() {
 		return partido;
 	}
