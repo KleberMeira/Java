@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="ConceitoOO"/>
+	<classpathentry kind="src" path="Heranca_Polimorfismo"/>
+	<classpathentry kind="src" path="Tratamento_De_Execao"/>
+	<classpathentry kind="src" path="Abstrata_Interface"/>
+	<classpathentry kind="src" path="Exercicio_De_Prova"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
