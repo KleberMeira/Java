@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="Abstrata_Interface"/>
 	<classpathentry kind="src" path="Exercicio_De_Prova"/>
 	<classpathentry kind="src" path="Lista_Lineares"/>
+	<classpathentry kind="src" path="Algoritimos_De_Ordenação"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
