@@ -20,14 +20,14 @@ public class Fila implements FilaSequencial {
 	
 	
 	@Override
-	public void enfileira(int elemento) {
+	public void enfileira() {
+		// TODO Auto-generated method stub
 		if(tamanho == vetor.length)
 			RedimencionaVetor();
 		
 		vetor[fim] = elemento;
 		fim = (fim + 1);
 		tamanho++;
-		
 	}
 
 	@Override
@@ -49,6 +49,9 @@ public class Fila implements FilaSequencial {
 			
 		}
 	}
+
+
+	
 
 	
 
