@@ -1,4 +1,4 @@
-package algoritimo;
+package construcaoDosAlgoritimos;
 
 public class ListaDeAlgoritimo {
 
@@ -27,12 +27,12 @@ public class ListaDeAlgoritimo {
 
 
 	///Bubble Sort
-	public void bubbleSort() {
+	public void bubbleSort(int n, int v[]) {
 		int i, j;
 		for(i = vetor.length-1 ; i > 0 ; i--) {
 			for(j = 0 ; j < i ; j++) {
 				if(vetor[j] > vetor[j+1]) {
-					troca();
+					troca(i, j, j+1);
 				}
 			}
 		}
@@ -40,7 +40,7 @@ public class ListaDeAlgoritimo {
 	}
 	
 	///Selection Sort
-	public void selectionSort() {
+	public void selectionSort(int n, int v[]) {
 		int i, j, min;
 		for(i = 0; i < vetor.length-1 ; i++) {
 			min = i;
@@ -48,27 +48,34 @@ public class ListaDeAlgoritimo {
 				if(vetor[j] < vetor[min]) {
 					min = j;
 				}
-			troca();
+			troca(i, j, min);
 			}
 		}
 	}
 	
 	///Insertion Sort
-	public void insertionSort() {
+	public void insertionSort(int n, int v[]) {
 		
+		int i, j, x;
+		for(i = 1; i < vetor.length ; i++) {
+			x = v[i];
+			for(j = i - 1; j >= 0 && v[j] > x ; j--) {
+				v[j+1] = v[j];
+			}
+			v[j+1] = x;
+		}
 	}
 	
 	
 	
 	///Troca
-	public int troca() {
-		int aux,j,i;
-		
+	public int troca(int i, int j, int aux) {
+	
 		aux = vetor[i];
 		vetor[j] = vetor[i];
 		aux = vetor[j];
 		
-		return 0;
+		return aux;
 	}
 	
 }
