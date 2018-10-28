@@ -6,6 +6,7 @@ public class TestePilha {
 		// TODO Auto-generated method stub
 		
 		PilhaSequencial<Integer> pilha1 = new PilhaSequencial<Integer>();
+		
 
 	}
 
