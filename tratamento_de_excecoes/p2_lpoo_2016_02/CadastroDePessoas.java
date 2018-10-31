@@ -7,7 +7,7 @@ public class CadastroDePessoas extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void IncluirPessoa() {
+	public void IncluirPessoa(CadastroDePessoas incluir) {
 		
 	}
 

@@ -1,5 +1,7 @@
 package p2_lpoo_2016_02;
 
+import exercicioum.HugeNameException;
+
 public class Pessoa {
 
 	private String nome;
@@ -16,8 +18,13 @@ public class Pessoa {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	//Lança exeção HugeNameException caso a String seja maior igual que 50
+	public void setNome(String nome) throws HugeNameException {
+		if(nome.length() <= 50) {
+			this.nome = nome;
+		}
+		else
+			throw new HugeNameException();
 	}
 
 	public String getCpf() {
