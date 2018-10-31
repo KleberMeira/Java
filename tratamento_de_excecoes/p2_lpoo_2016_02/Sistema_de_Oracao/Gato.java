@@ -22,9 +22,9 @@ public class Gato extends Animal implements Oracao{
 		System.out.println(" Mi mi mi mi ");
 	}
 
-	//quando recebe uma oracao, um gato ﬁca em silencio, pois tem diﬁculdade de agradecer
+	///O gato fica em silencio pois tem dificuldade de agradescer
 	public void recebeOracao(){
-		System.out.println(" ");
+		System.out.println(" estou quieto ");
 	}
 
 }

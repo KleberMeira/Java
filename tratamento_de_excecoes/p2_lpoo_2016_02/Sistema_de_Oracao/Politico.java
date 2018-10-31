@@ -20,6 +20,7 @@ public class Politico extends Pessoa implements Oracao{
 	public void fazOracao(){
 		double novoValor = getValorPropinaRecebida();
 		novoValor = novoValor - 100;
+		//System.out.println("Eu" + novoValor); para fim de testes do metodo
 	}
 
 	//quando recebe uma oracao, ele emite uma mensagem de gratidao e pede voto

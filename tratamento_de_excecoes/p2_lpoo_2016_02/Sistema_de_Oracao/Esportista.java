@@ -20,7 +20,7 @@ public class Esportista extends Pessoa{
 		System.out.println(" no pain, no gain ");
 	}
 	public void recebeOracao(){
-		System.out.println("Gratidão, torce por mim nas Olimpiadas ");
+		System.out.println("Gratidão, torce por mim nas proximas Olimpiadas ");
 	}
 
 }
