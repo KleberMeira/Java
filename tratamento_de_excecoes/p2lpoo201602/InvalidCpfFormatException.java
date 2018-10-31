@@ -1,4 +1,4 @@
-package p2_lpoo_2016_02;
+package p2lpoo201602;
 
 public class InvalidCpfFormatException extends Exception {
 
