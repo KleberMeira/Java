@@ -1,31 +1,65 @@
 public class ListaEncadeada1 implements ListaEncadeada {
 
+	
 	private Celula p;
 	
-
 	public ListaEncadeada1() {
-		this.p = new Celula();
+		this.p = null;
 	}
+	
+	
 
 	public Celula getP() {
 		return p;
 	}
 
-	
+	public void setP(Celula p) {
+		this.p = p;
+	}
+
+
 	@Override
 	public void add(int e) {
 		// TODO Auto-generated method stub
-		Celula aux = p;
 		Celula nova = new Celula();
-				
 		nova.setChave(e);
-		p.setProx(nova);
-
+		nova.setProx(null);
+		
+		if(p == null) {
+			p = nova;
+		}
+		else {
+			Celula aux;
+			aux = p;
+			while(aux.getProx() != null) {
+				aux = aux.getProx();
+			}
+			aux.setProx(nova);
+		}
+			
 	}
 
 	@Override
-	public void ler() {
+	public void imprime() {
 		// TODO Auto-generated method stub
-		for()
+		if(p == null) 
+			System.out.println("A lista está vazia");
+			
+		else {
+			Celula aux = p;
+			while(aux != null) {
+				System.out.println("Elementos: " + aux.getChave());
+				aux = aux.getProx();
+		}
+			
+		}
 		
 	}
+
+	public boolean isEmpty() {
+		return this.p == null;
+	}
+
+	
+
+}

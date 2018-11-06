@@ -4,12 +4,6 @@ public class Celula {
 	private Celula prox;
 	
 	
-	
-	public Celula() {
-		setProx(null);
-	}
-	
-	
 	public int getChave() {
 		return chave;
 	}
@@ -24,6 +18,7 @@ public class Celula {
 	}
 	
 
+	
 	
 	
 }

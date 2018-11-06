@@ -1,5 +1,6 @@
 public interface ListaEncadeada {
 
 	void add(int e);
-	void ler();
+	void imprime();
+	boolean isEmpty();
 }
