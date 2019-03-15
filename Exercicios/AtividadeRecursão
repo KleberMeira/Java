@@ -1,0 +1,4 @@
+Escreva o algoritmo da busca binária:
+int: buscaB(int[], int x, int i, int f)
+considere vet ordenado
+faça o algoritmo recursivo
