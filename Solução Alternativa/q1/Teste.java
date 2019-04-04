@@ -8,7 +8,6 @@ public class Teste {
 		Triangulo t = new Triangulo(1, 1, 1);
 		Retangulo r = new Retangulo(2, 3); //base * altura
 		Quadrado q = new Quadrado(2, 2);
-		Figura fig;
 		
 		/*
 		System.out.print("Tipo do Triangulo: ");
