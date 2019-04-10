@@ -1,10 +1,6 @@
 
 public class ComparaString {
 
-	// merge
-	public void mergerSort(String[] vet, int inicio, int fim) {
-
-	}
 
 	// QuickSort
 	public void quickSort(String[] vet, int inicio, int fim) {
@@ -51,5 +47,45 @@ public class ComparaString {
 		return i;
 	}
 	
+
+	public void mergeSort(String[] v, int inicio, int fim) {
+
+		String[] aux = new String[v.length];
+
+		if (inicio < fim) {
+			int meio = (inicio + fim) / 2;
+			mergeSort(v, inicio, meio);
+			mergeSort(v, meio + 1, fim);
+			ordena(v, inicio, meio, fim);
+		}
+
+	}
+
+
+	public void ordena(String[] v, int inicio, int meio, int fim) {
+		// TODO Auto-generated method stub
+		String[] aux = new String[v.length]; //Criação vetor auxiliar
+
+		for (int pos = inicio; pos <= fim; pos++) {
+			aux[pos] = v[pos]; //Copia dos elementos do vetor a para o vetor auxiliar
+		}
+
+		int i = inicio; 
+		int posMeio = meio + 1; /// Meio somada a mais uma, ou seja apos a metade
+		int k = inicio; 		/// Inicio 2 para o vetor auxiliar
+
+		while (i <= meio && posMeio <= fim) {
+			
+			if (aux[i].length() < aux[posMeio].length()) { 
+				v[k++] = aux[i++];
+			} else
+				v[k++] = aux[posMeio++];
+		}
+		
+		while(i <= meio)
+		{
+			v[k++] = aux[i++];
+		}
+	}
 	
 }

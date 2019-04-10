@@ -107,4 +107,49 @@ public class AlgOrdenacao {
 		}
 	}
 
+		// QuickSort
+		public void quickSort(int[] vet, int inicio, int fim) {
+
+			int i = partition(vet, inicio, fim);
+	
+			if (inicio < i - 1) {
+				quickSort(vet, inicio, i - 1);
+			}
+	
+			if (i < fim) {
+				quickSort(vet, i, fim);
+			}
+	
+		}
+	
+		public int partition(int[] a, int inicio, int fim) {
+			
+			int i = inicio;
+			int j = fim;
+			
+			int pivot = (inicio + fim/2);
+			
+			while(i <= j ) {
+				
+				while(a[i] < pivot) {
+					i++;
+				}
+				
+				while(a[j] > pivot) {
+					j--;
+				}
+				
+				if (i <= j) {
+					int temp;
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+					i++;
+					j--;
+				}	
+			
+			}
+			return i;
+		}
+
 }
