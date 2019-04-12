@@ -1,0 +1,19 @@
+
+----Exercicio Ordenação---
+	* Baseado no diagrama de classes e nas restrições, Implemente uma solução para esse calendário de eventos *
+	* Implemente uma função principal para testar a implementação *
+
+
+//Restrições 
+
+--> Metodos de comparação da classe Data devem retornar 0 caso o que for comparado é exatamente igual. Caso o que for passado
+como parametro seja menor que o do proprio objeto e 1 caso seja maior.
+
+--> Metodos *mostrarDia* devem ordenar os eventos usando o dia como parâmetro. *mostarMes* e *mostrarAno* seguem o mesmo
+raciocinio.
+Todos devem exibir a lista de eventos e o tempo de execução deve ser O(n log n).
+
+--> O método igual da classe Evento retorna true caso dois eventos sejam iguais e false caso contrario.
+
+--> Ao adcionar um evento ele deve ser diferente dos existentes.
+
