@@ -7,7 +7,7 @@
 //Restrições 
 
 --> Metodos de comparação da classe Data devem retornar 0 caso o que for comparado é exatamente igual. Caso o que for passado
-como parametro seja menor que o do proprio objeto e 1 caso seja maior.
+como parametro seja menor que o do proprio objeto retorna -1 e 1 caso seja maior.
 
 --> Metodos *mostrarDia* devem ordenar os eventos usando o dia como parâmetro. *mostarMes* e *mostrarAno* seguem o mesmo
 raciocinio.

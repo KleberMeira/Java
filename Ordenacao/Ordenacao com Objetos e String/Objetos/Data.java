@@ -1,43 +1,58 @@
 
-public class Data extends Evento {
+public class Data implements Listagem {
 
 	private int dia;
 	private int mes;
 	private int ano;
 
-	public Data(Evento[] eventos, Data data, String horario, String nome, int dia, int mes, int ano) {
-		super(eventos, data, horario, nome);
-		this.dia = dia;
-		this.mes = mes;
-		this.ano = ano;
-	}
-	
-	public Data(Calendario c, Evento e, Data d) {
-		super(c, e);
+	public Data(int dia, int mes, int ano) {
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
 	}
 
-
+	public Data(Data d) {
+		this.dia = d.getDia();
+		this.mes = d.getMes();
+		this.ano = d.getAno();
+	}
 
 	public int compare(Data data) {
-		
-		
-		
-		return 0;
+
+		if (data.equals(data)) {
+			return 1;
+		} else
+			return 0;
 	}
 
 	public int compareAno(int ano) {
-		return 0;
+
+		if (this.ano > ano) {
+			return -1;
+		} else if (this.ano == ano) {
+			return 0;
+		} else
+			return 1;
 	}
 
 	public int compareDia(int dia) {
-		return 0;
+
+		if (this.dia > dia) {
+			return -1;
+		} else if (this.dia == dia) {
+			return 0;
+		} else
+			return 1;
 	}
 
 	public int compareMes(int mes) {
-		return 0;
+
+		if (this.mes > mes) {
+			return -1;
+		} else if (this.mes == mes) {
+			return 0;
+		} else
+			return 1;
 	}
 
 	/// GET AND SETTERS
@@ -65,4 +80,12 @@ public class Data extends Evento {
 		this.ano = ano;
 	}
 
+	@Override
+	public void listagemGeral() {
+		// TODO Auto-generated method stub
+		System.out.print("Data: " + getDia() + "/" + getMes() + "/" + getAno());
+	}
+
+	//
+	
 }
