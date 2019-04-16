@@ -11,14 +11,16 @@ public class Calendario {
 		this.eventos = c.getEventos();
 	}
 		
-	public void mostrarDia(Evento[] v, int inicio, int fim) {
+	public void mostrar(Evento[] v, int inicio, int fim) {
 
+		
+		
 		//int[] aux = new int[v.length];
 
 		if (inicio < fim) {
 			int meio = (inicio + fim) / 2;
-			mostrarDia(v, inicio, meio);
-			mostrarDia(v, meio + 1, fim);
+			mostrar(v, inicio, meio);
+			mostrar(v, meio + 1, fim);
 			ordena(v, inicio, meio, fim);
 		}
 

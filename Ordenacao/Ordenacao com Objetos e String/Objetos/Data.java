@@ -16,6 +16,10 @@ public class Data implements Listagem {
 		this.mes = d.getMes();
 		this.ano = d.getAno();
 	}
+	
+	public Data() {
+		
+	}
 
 	public int compare(Data data) {
 
