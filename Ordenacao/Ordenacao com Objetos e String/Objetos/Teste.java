@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class Teste {
 
-
 	public static void main(String[] args) {
 		
-		Scanner input = new Scanner(System.in);
+
+Scanner input = new Scanner(System.in);
 		
 		int menu = 0;
 		
@@ -85,13 +85,13 @@ public class Teste {
 				valor = input.nextInt();
 				
 				if(valor == 1) {
-					valor = dat.getDia();
+					ca.mostrarDia(ca.getEventos(), 0, ca.getEventos().length-1);
 				}
 				else if(valor == 2) {
-					valor = dat.getMes();
+					ca.mostrarMes(ca.getEventos(), 0, ca.getEventos().length-1);
 				}
 				else if(valor == 3) {
-					valor = dat.getAno();
+					ca.mostrarAno(ca.getEventos(), 0, ca.getEventos().length-1);
 				}
 				else
 					System.out.println("Inválido!");
@@ -140,6 +140,8 @@ public class Teste {
 		
 		
 		
-		}
+		
+		
+	}
 
 }
