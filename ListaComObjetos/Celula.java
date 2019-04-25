@@ -1,0 +1,36 @@
+
+public class Celula {
+
+	private Object elemento;
+	private Celula proximo;
+	
+	public Celula() {
+		
+	}
+	
+	public Celula(Object elemento) {
+		this.elemento = elemento;
+		this.proximo  = null;
+	}
+	
+	public Celula(Celula proximo, Object elemento) {
+		this.proximo  = proximo;
+		this.elemento = elemento;
+	}
+	
+	public Object getElemento() {
+		return elemento;
+	}
+	public void setElemento(Object elemento) {
+		this.elemento = elemento;
+	}
+	public Celula getProximo() {
+		return proximo;
+	}
+	public void setProximo(Celula proximo) {
+		this.proximo = proximo;
+	}
+	
+	
+	
+}

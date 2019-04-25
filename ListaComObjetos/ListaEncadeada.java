@@ -1,15 +1,67 @@
-package com.listaordem;
 
 public class ListaEncadeada implements Lista {
 
-	private Node inicio;
-	
-	
-	
+	private Celula inicio;
+
+	public ListaEncadeada() {
+		this.inicio = null;
+	}
+
+	public void inserir(int elemento) {
+
+		Celula nova = new Celula(elemento);
+		// nova.setElemento(elemento);
+		nova.setProximo(null);
+
+		if (inicio == null) {
+			inicio = nova; // Verifica se a lista tem mais de 1 elemento
+		} else {
+			Celula aux;
+			aux = inicio;
+
+			while (aux.getProximo() != null) {
+				aux = aux.getProximo(); // Percorre a lista a adciona ao final
+			}
+			aux.setProximo(nova); // Seta a ultima celula para a nova e a nova p/null
+		}
+	}
+
+	public void listar() {
+
+		if (inicio == null) {
+			System.out.println("Vazia");
+		} else {
+			Celula aux;
+			aux = inicio;
+
+			while (aux.getProximo() != null) {
+				System.out.println(" " + aux.getElemento());
+				aux = aux.getProximo();
+			}
+
+		}
+
+	}
+
 	@Override
 	public Object get(int pos) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Celula aux = inicio;
+		int cont = 0;
+		
+		if(size() < pos) {
+			return null;
+		}
+		else {
+			while(aux.getProximo() != null) {
+				if(cont == pos) {
+					return aux;
+				}
+				cont++;
+				aux = aux.getProximo();
+			}
+		}
+		return aux;
 	}
 
 	@Override
@@ -20,64 +72,76 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public boolean add(Object item) {
-		// TODO Auto-generated method stub
-		Node nova = new Node(item);
-		Node aux = this.inicio;
 
-		if(aux.getProx() != null) {
-			while(aux != null) 
-				aux = aux.getProx();
-			aux = nova;
-		}else 
-			aux = nova;
-		
+		Celula nova = new Celula(item);
+		nova.setProximo(null);
+
+		if (inicio == null) {
+			inicio = nova;
+			return true;
+		} else {
+			Celula aux = inicio;
+
+			while (aux.getProximo() != null) {
+				aux = aux.getProximo();
+			}
+
+			aux.setProximo(nova);
+
+		}
 		return true;
 	}
 
 	@Override
 	public boolean remove(int pos) {
 
-		if(size() < pos) 
-			return false;
-		
-		Node p = this.inicio;
-		Node q = p.getProx();
-		
-		for(int i = 0 ; i < pos - 1; i++) {
-			//alguma coisa
-			p = p.getProx();
-			q = q.getProx();
+		Celula aux = this.inicio;
+		Celula posAux = aux.getProximo();
+		int iteracao = 0;
+
+		if (pos > size())
+			return false; /// Posição inválida
+
+		else {
+			if (pos == 0) {
+				this.inicio = aux.getProximo(); // se posicao buscada for 0
+			}
+			else {
+				for(int i=0 ; i <= pos; i++) {
+					aux = aux.getProximo();
+					posAux = aux.getProximo();
+					if(i == pos) {
+						
+					}
+				}
+				
+			}
+
 		}
-		
-		if(pos == 0) {
-			this.inicio = p.getProx();
-		}
-		
-		
-		
-		
-		return false;
+
+		return true;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return size() == 0 ? true : false;
+		return size() == 0 ? true : false; // se size == 0 lista vazia
 	}
 
 	@Override
 	public int size() {
-		
-		if(inicio.getProx() == null) {
+
+		if (inicio == null) {
 			return 0;
 		}
+
 		else {
-			Node aux = new Node();
-			int i = 0;
-			while(aux.getProx() != null) {
-				i++;
-				aux = aux.getProx();
+			Celula aux = inicio;
+			int tamanho = 0;
+			while (aux.getProximo() != null) {
+				aux = aux.getProximo();
+				tamanho++;
 			}
-			return i; //retorna o tamanho da lista
+			return tamanho;
 		}
 	}
 
