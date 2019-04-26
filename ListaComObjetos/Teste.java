@@ -7,21 +7,34 @@ public class Teste {
 		
 		ListaEncadeada lista = new ListaEncadeada();
 		
-		lista.inserir(34664);
-		lista.inserir(2015);
-		lista.inserir(45);
-		lista.inserir(4554);
-		lista.inserir(878);
-		
+		System.out.println("**Lista Original**");
+		//Insere no fim da lista
+		lista.add(13);
+		lista.add(12);
+		lista.add(10);
+		lista.add(20);
 		lista.listar();
-		//System.out.println("Tamanho de: " + lista.size()); 
-		//System.out.println(lista.isEmpty());
+		
 		System.out.println();
+		
+		System.out.println("***Aqui REMOVE um elemento em uma posicao especifica***");
 		lista.remove(2);
-		
 		lista.listar();
 		
 		System.out.println();
+
+		System.out.println("***Aqui INSERE um elemento em uma posicao especifica***");
+		lista.add(2, 100);
+		lista.listar();
+		
+		System.out.println();
+		System.out.println("***QUANTIDADE de elementos***");
+		System.out.println(lista.size());
+		
+		System.out.println();
+		System.out.println("***Aqui RETORNA o ELEMENTO do MEIO");
+		System.out.println(lista.retornaCentral());
+		
 
 	
 	}

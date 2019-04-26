@@ -14,7 +14,7 @@ public class ListaEncadeada implements Lista {
 		nova.setProximo(null);
 
 		if (inicio == null) {
-			inicio = nova; // Verifica se a lista tem mais de 1 elemento
+			inicio = nova; //Inserio o primeirpo elemento da lista
 		} else {
 			Celula aux;
 			aux = inicio;
@@ -34,8 +34,8 @@ public class ListaEncadeada implements Lista {
 			Celula aux;
 			aux = inicio;
 
-			while (aux.getProximo() != null) {
-				System.out.println(" " + aux.getElemento());
+			while (aux != null) {
+				System.out.print(" " + aux.getElemento() + " ");
 				aux = aux.getProximo();
 			}
 
@@ -49,7 +49,7 @@ public class ListaEncadeada implements Lista {
 		Celula aux = inicio;
 		int cont = 0;
 		
-		if(size() < pos) {
+		if(pos <= size()) {
 			return null;
 		}
 		else {
@@ -66,8 +66,20 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public boolean add(int pos, Object item) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Celula p = this.inicio;
+		Celula q = p.getProximo();
+		Celula nova = new Celula(item);
+		
+		for(int i = 0; i < pos-1; i++) {
+			p = p.getProximo();
+			q = q.getProximo();
+		}
+		
+		p.setProximo(nova);
+		nova.setProximo(q);
+		
+		return true;
 	}
 
 	@Override
@@ -95,31 +107,31 @@ public class ListaEncadeada implements Lista {
 	@Override
 	public boolean remove(int pos) {
 
-		Celula aux = this.inicio;
-		Celula posAux = aux.getProximo();
-		int iteracao = 0;
+		Celula p = this.inicio;
+		Celula q = p.getProximo();
+		int iteracao = 1;
 
 		if (pos > size())
 			return false; /// Posição inválida
 
-		else {
+		
 			if (pos == 0) {
-				this.inicio = aux.getProximo(); // se posicao buscada for 0
+				this.inicio = p.getProximo(); // se posicao buscada for 0
 			}
 			else {
-				for(int i=0 ; i <= pos; i++) {
-					aux = aux.getProximo();
-					posAux = aux.getProximo();
-					if(i == pos) {
-						
-					}
+				for(int i = 0; i < pos-1; i++) {
+					
+					p = p.getProximo();//Percorre até a posicao (pos)
+					q = q.getProximo();
+			
 				}
-				
-			}
+					//Aqui ele está parado uma posicao antes e assim removemos o proximo
+					//desta posicao
+					p.setProximo(p.getProximo().getProximo());
 
-		}
+				}
 
-		return true;
+			return true;
 	}
 
 	@Override
@@ -137,12 +149,30 @@ public class ListaEncadeada implements Lista {
 		else {
 			Celula aux = inicio;
 			int tamanho = 0;
-			while (aux.getProximo() != null) {
+			while (aux != null) {
+				//Aux.getProximo() deixa para tras um elemento pois já comeca na frente de um
+				//já apenas aux pega todos os elementos possiveis e para quando encontra o null
 				aux = aux.getProximo();
 				tamanho++;
 			}
 			return tamanho;
 		}
 	}
+	
+	public Object retornaCentral () {
+		
+		Celula aux = this.inicio;
+		int meio = (size()/2);
+		
+		for(int i = 0; i < meio; i++) {
+			aux = aux.getProximo();
+		}
+		return aux.getElemento();
+	}
 
+	public void trocarElementos (int pos1, int pos2) {
+		
+	}
+	
+	
 }
