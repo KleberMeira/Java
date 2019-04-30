@@ -1,3 +1,4 @@
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 /*
  *********Campo Grande/MS******************
@@ -19,10 +20,22 @@ public class Teste {
 		//Insere no comeco
 		System.out.println("***  Insere no Comeco");
 		lista.insertLast(5);
-		lista.insertLast(50);
-		lista.insertLast(500);
-		lista.remove();
+		lista.insertLast(15);
+		lista.insertLast(150);
+		lista.insertLast(1500);
+
 		lista.listar();
+		System.out.println();
+		
+		lista.insert(3, 6);
+		lista.listar();
+		System.out.println();
+		//System.out.println("Elemento " + lista.remove(1) + " removido pelo indice");
+		//System.out.println("Elemento buscado pelo indice eh: " + lista.peek(3));
+		
+		System.out.println(lista.contains(3));
+	
+		
 		
 		
 		
