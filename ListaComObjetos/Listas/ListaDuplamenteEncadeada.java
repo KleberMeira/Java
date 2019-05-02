@@ -1,60 +1,52 @@
 
-public class ListaEncadeada implements Lista {
+public class ListaDuplamenteEncadeada implements Lista {
 
-	/*
-	 * Kleber Meira
-	 */
+	private DoubleLinkedNode inicio;
+	private DoubleLinkedNode fim;
 
-	private Node inicio;
-
-	public ListaEncadeada() {
+	public ListaDuplamenteEncadeada() {
 		this.inicio = null;
+		fim = inicio;
+	}
+
+	public void ler() {
+		DoubleLinkedNode aux = this.inicio;
+
+		while (aux != null) {
+			System.out.print(" " + aux.getElemento() + " ");
+			aux = aux.getProximo();
+		}
 	}
 
 	// Insercao de elemento no comeco da lista
 	@Override
 	public boolean insert(Object obj) {
 
-		Node nova = new Node();
+		DoubleLinkedNode nova = new DoubleLinkedNode();
 		nova.setElemento(obj);
-		nova.setProx(null);
 
-		if (inicio == null) {
+		if (this.inicio == null) {
 			this.inicio = nova;
-			return true;
 		} else {
-			nova.setProx(inicio);
+			nova.setProximo(inicio);
+			nova.setAnterior(null);
 			inicio = nova;
-			return true;
 		}
 
-	}
-
-	public void listar() {
-		Node aux = this.inicio;
-
-		if (size() == 0) {
-			System.out.println("Lista vazia");
-		} else {
-			while (aux != null) {
-				System.out.print(" " + aux.getElemento());
-				aux = aux.getProx();
-			}
-		}
-
+		return true;
 	}
 
 	// Remocao de elemento no comeco da lista
 	@Override
 	public Object remove() {
 
+		DoubleLinkedNode aux = this.inicio;
+
 		if (size() == 0) {
 			return null;
 		} else {
-			Node aux = this.inicio;
-			this.inicio = aux.getProx();
+			this.inicio = inicio.getProximo();
 			return aux.getElemento();
-
 		}
 	}
 
@@ -62,101 +54,102 @@ public class ListaEncadeada implements Lista {
 	@Override
 	public boolean insertLast(Object obj) {
 
-		Node aux = this.inicio;
-		Node nova = new Node();
+		DoubleLinkedNode nova = new DoubleLinkedNode();
 		nova.setElemento(obj);
-		nova.setProx(null);
 
 		if (inicio == null) {
-			inicio = nova;
-			return true;
+			this.inicio = nova;
 		} else {
-			while (aux.getProx() != null) {
-				aux = aux.getProx();
+			DoubleLinkedNode aux = this.inicio;
+			while (aux.getProximo() != null) {
+				aux = aux.getProximo();
 			}
-			aux.setProx(nova);
+			aux.setProximo(nova);
+			nova.setAnterior(aux);
+			nova.setProximo(null);
 		}
+
 		return true;
 	}
 
-	// Remove elemento do final da lista **VOLTAR**
+	// Remove elemento do final da lista
 	@Override
 	public Object removeLast() {
 
-		Node p = this.inicio;
-		Node q;
+		// a fazer
 
-		if (size() == 0) {
-			return null;
-		} else if (size() == 1) {
-			this.inicio = null;
-			return p.getElemento();
-		} else {
-
-			for (int i = 0; i < size(); i++) {
-				p = p.getProx();
-			}
-			p.setProx(null);
-			return p.getElemento();
-		}
+		return null;
 	}
 
 	// Insercao de elemento na posicao recebida como parametro
 	@Override
 	public boolean insert(int pos, Object obj) {
 
-		Node p = this.inicio;
-		Node q = p.getProx();
-		Node nova = new Node();
+		DoubleLinkedNode nova = new DoubleLinkedNode();
 		nova.setElemento(obj);
 
 		if (pos > size()) {
 			return false;
+		} else if (pos == 0) {
+			insert(obj);
+			return true;
 		} else {
+			DoubleLinkedNode p = this.inicio;
+			DoubleLinkedNode q = p.getProximo();
+
 			for (int i = 0; i < pos - 1; i++) {
-				p = p.getProx();
-				q = q.getProx();
+				p = p.getProximo();
+				q = q.getProximo();
 			}
-			p.setProx(nova);
-			nova.setProx(q);
+
+			p.setProximo(nova);
+			nova.setAnterior(p);
+			nova.setProximo(q);
+			q.setAnterior(nova);
 			return true;
 		}
 	}
 
 	// Remocao de elemento da posicao passa por parametro e retornando este valor
-	// Rever a questao da posicao 0 e 1 semipronto
 	@Override
 	public Object remove(int pos) {
 
-		Node p = this.inicio;
-		Node q;
-
-		if (pos > size()) {
+		DoubleLinkedNode p = this.inicio;
+		DoubleLinkedNode q = p.getProximo();
+		DoubleLinkedNode aux;
+		
+		if (pos == 0) {
+			aux = p;
+			this.inicio = inicio.getProximo();
+			return aux.getElemento();
+			
+		} else if (pos > size()) {
 			return null;
-		} else if (pos == 0) {
-			return this.inicio = p.getProx();
 		} else {
-
 			for (int i = 0; i < pos - 1; i++) {
-				p = p.getProx();
+				p = p.getProximo();
+				q = q.getProximo();
 			}
-			q = p;
-			p.setProx(p.getProx().getProx());
-			return q.getElemento();
+
+			aux = q;
+			p.setProximo(p.getProximo().getProximo());
+			q.setAnterior(p);
+			return aux.getElemento();
 		}
 	}
 
 	// Retorna elemento da posicao do parametro sem remover, semelhante ao get
 	@Override
 	public Object peek(int pos) {
-
-		Node p = this.inicio;
-
-		if (pos > size()) {
+		
+		DoubleLinkedNode p = this.inicio;
+		
+		if(pos > size()) {
 			return null;
-		} else {
-			for (int i = 0; i < pos; i++) {
-				p = p.getProx();
+		}
+		else {
+			for(int i = 0; i < pos; i++) {
+				p = p.getProximo();
 			}
 			return p.getElemento();
 		}
@@ -180,13 +173,13 @@ public class ListaEncadeada implements Lista {
 	@Override
 	public int size() {
 
-		Node aux = this.inicio;
+		DoubleLinkedNode aux = this.inicio;
 		int tamanho = 0;
+
 		while (aux != null) {
-			aux = aux.getProx();
+			aux = aux.getProximo();
 			tamanho++;
 		}
-
 		return tamanho;
 	}
 
@@ -214,22 +207,8 @@ public class ListaEncadeada implements Lista {
 	// na lista
 	@Override
 	public boolean contains(Object obj) {
-
-		Node aux = this.inicio;
-
-		while(aux != null) {
-			if(aux.getElemento().equals(obj)) {
-				return true;
-			}
-			aux = aux.getProx();
-		}
-		
+		// TODO Auto-generated method stub
 		return false;
-	}
-
-	public String toString() {
-
-		return " Elementos: ";
 	}
 
 }
