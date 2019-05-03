@@ -79,29 +79,27 @@ public class ListaEncadeada implements Lista {
 		return true;
 	}
 
-	// Remove elemento do final da lista **VOLTAR**
+	// Remove elemento do final da lista
 	@Override
 	public Object removeLast() {
 
-		Node p = this.inicio;
-		Node q;
+		Node aux = this.inicio;
+		Node p;
 
-		if (size() == 0) {
-			return null;
-		} else if (size() == 1) {
-			this.inicio = null;
-			return p.getElemento();
-		} else {
-
-			for (int i = 0; i < size(); i++) {
-				p = p.getProx();
-			}
-			p.setProx(null);
-			return p.getElemento();
+		int tam = size() - 1;
+		for (int i = 0; i < tam - 1; i++) {
+			aux = aux.getProx();
 		}
+
+		p = aux.getProx();
+		aux.setProx(aux.getProx().getProx());
+
+		return p.getElemento();
+
 	}
 
 	// Insercao de elemento na posicao recebida como parametro
+	// verificar pq esta comecando da pos 1 ao inves da 0 **VOLTAR AQUI**
 	@Override
 	public boolean insert(int pos, Object obj) {
 
@@ -124,9 +122,8 @@ public class ListaEncadeada implements Lista {
 	}
 
 	// Remocao de elemento da posicao passa por parametro e retornando este valor
-	// Rever a questao da posicao 0 e 1 semipronto
 	@Override
-	public Object remove(int pos) {
+	public Object remove(int pos) { // rever
 
 		Node p = this.inicio;
 		Node q;
@@ -134,7 +131,9 @@ public class ListaEncadeada implements Lista {
 		if (pos > size()) {
 			return null;
 		} else if (pos == 0) {
-			return this.inicio = p.getProx();
+			q = p;
+			this.inicio = p.getProx();
+			return q.getElemento();
 		} else {
 
 			for (int i = 0; i < pos - 1; i++) {
@@ -143,6 +142,7 @@ public class ListaEncadeada implements Lista {
 			q = p;
 			p.setProx(p.getProx().getProx());
 			return q.getElemento();
+
 		}
 	}
 
@@ -163,11 +163,60 @@ public class ListaEncadeada implements Lista {
 	}
 
 	// Ordenacao da lista
+	//Object[] vet, int inicio, int fim
 	@Override
 	public void sort() {
-		// TODO Auto-generated method stub
+		
+		Node lista = this.inicio;
+		//quickSort(lista, this.inicio , size()-1);
 
 	}
+	/*
+	public void quickSort(Object vet, Node inicio, int fim) {
+
+		int i = partition(vet, inicio, fim);
+
+		if (inicio < i - 1) {
+			quickSort(vet, inicio, i - 1);
+		}
+
+		if (i < fim) {
+			quickSort(vet, i, fim);
+		}
+
+	}
+
+	public int partition(Object a, int inicio, int fim) {
+
+		int i = inicio;
+		int j = fim;
+
+		int pivot = (inicio + fim / 2);
+
+		while (i <= j) {
+
+			while (a[i] < pivot) {
+				i++;
+			}
+
+			while (a[j] > pivot) {
+				j--;
+			}
+
+			if (i <= j) {
+				int temp;
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+				i++;
+				j--;
+			}
+
+		}
+		return i;
+	}
+	*/
+	
 
 	// Inversao da lista
 	@Override
@@ -182,11 +231,10 @@ public class ListaEncadeada implements Lista {
 			p = p.getProx();
 			q = q.getProx();
 			atual = atual.getProx();
-			System.out.print("" + p.getElemento() +  "");
+			System.out.print("" + p.getElemento() + "");
 		}
-		
+
 		this.inicio = atual;
-		
 
 	}
 
@@ -200,7 +248,7 @@ public class ListaEncadeada implements Lista {
 			aux = aux.getProx();
 			tamanho++;
 		}
-
+		
 		return tamanho;
 	}
 
@@ -208,13 +256,40 @@ public class ListaEncadeada implements Lista {
 	@Override
 	public Lista getFirstHalf() {
 
+		Node lista = this.inicio;
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		ListaEncadeada nova = new ListaEncadeada();
+		for (int i = 0; i <= metade; i++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProx();
+		}
+		nova.listar();
+		
 		return null;
 	}
 
 	// Retorno da segunda metade da lista
 	@Override
 	public Lista getSecondHalf() {
-		// TODO Auto-generated method stub
+		
+		Node lista = this.inicio;
+		ListaEncadeada nova = new ListaEncadeada();
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		for (int i = 0; i < metade; i++) {
+			lista = lista.getProx();
+		}
+
+		// System.out.println(lista.getElemento());
+
+		for (int j = metade; j < size(); j++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProx();
+		}
+
+		nova.listar();
+		
 		return null;
 	}
 
@@ -245,33 +320,4 @@ public class ListaEncadeada implements Lista {
 
 		return " Elementos: ";
 	}
-
-	/*
-	 * // QuickSort public void quickSort(Object[] vet, int inicio, int fim) {
-	 * 
-	 * int i = partition(vet, inicio, fim);
-	 * 
-	 * if (inicio < i - 1) { quickSort(vet, inicio, i - 1); }
-	 * 
-	 * if (i < fim) { quickSort(vet, i, fim); }
-	 * 
-	 * }
-	 * 
-	 * public int partition(Object[] a, int inicio, int fim) {
-	 * 
-	 * int i = inicio; int j = fim;
-	 * 
-	 * int pivot = (inicio + fim/2);
-	 * 
-	 * while(i <= j ) {
-	 * 
-	 * while(a[i] < pivot) { i++; }
-	 * 
-	 * while(a[j] > pivot) { j--; }
-	 * 
-	 * if (i <= j) { int temp; temp = a[i]; a[i] = a[j]; a[j] = temp; i++; j--; }
-	 * 
-	 * } return i; }
-	 */
-
 }

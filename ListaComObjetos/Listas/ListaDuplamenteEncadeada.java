@@ -27,10 +27,12 @@ public class ListaDuplamenteEncadeada implements Lista {
 
 		if (this.inicio == null) {
 			this.inicio = nova;
+			fim = nova; // fica na primeira celula de criacao e vai se tornando a calda
 		} else {
+
 			nova.setProximo(inicio);
-			nova.setAnterior(null);
-			inicio = nova;
+			inicio.setAnterior(nova);
+			inicio = nova;// vai movendo o inicio sempre para cabeca
 		}
 
 		return true;
@@ -58,27 +60,30 @@ public class ListaDuplamenteEncadeada implements Lista {
 		nova.setElemento(obj);
 
 		if (inicio == null) {
-			this.inicio = nova;
+			inicio = nova;
+			fim = nova;
 		} else {
-			DoubleLinkedNode aux = this.inicio;
-			while (aux.getProximo() != null) {
-				aux = aux.getProximo();
-			}
-			aux.setProximo(nova);
-			nova.setAnterior(aux);
-			nova.setProximo(null);
+
+			fim.setProximo(nova);
+			nova.setAnterior(fim);
+			fim = nova;
 		}
 
 		return true;
 	}
 
-	// Remove elemento do final da lista
+	// Remove elemento do final da lista ///VOLTAR AQUI
 	@Override
 	public Object removeLast() {
 
-		// a fazer
+		DoubleLinkedNode aux = this.fim;
 
-		return null;
+		if (size() == 0) {
+			return null;
+		} else {
+			this.fim = fim.getAnterior();
+			return aux.getElemento();
+		}
 	}
 
 	// Insercao de elemento na posicao recebida como parametro
@@ -117,12 +122,12 @@ public class ListaDuplamenteEncadeada implements Lista {
 		DoubleLinkedNode p = this.inicio;
 		DoubleLinkedNode q = p.getProximo();
 		DoubleLinkedNode aux;
-		
+
 		if (pos == 0) {
 			aux = p;
 			this.inicio = inicio.getProximo();
 			return aux.getElemento();
-			
+
 		} else if (pos > size()) {
 			return null;
 		} else {
@@ -141,14 +146,13 @@ public class ListaDuplamenteEncadeada implements Lista {
 	// Retorna elemento da posicao do parametro sem remover, semelhante ao get
 	@Override
 	public Object peek(int pos) {
-		
+
 		DoubleLinkedNode p = this.inicio;
-		
-		if(pos > size()) {
+
+		if (pos > size()) {
 			return null;
-		}
-		else {
-			for(int i = 0; i < pos; i++) {
+		} else {
+			for (int i = 0; i < pos; i++) {
 				p = p.getProximo();
 			}
 			return p.getElemento();
@@ -165,7 +169,13 @@ public class ListaDuplamenteEncadeada implements Lista {
 	// Inversao da lista
 	@Override
 	public void invert() {
-		// TODO Auto-generated method stub
+
+		DoubleLinkedNode aux = this.fim;
+
+		while (aux != null) {
+			System.out.print(" " + aux.getElemento() + " ");
+			aux = aux.getAnterior();
+		}
 
 	}
 
@@ -186,14 +196,41 @@ public class ListaDuplamenteEncadeada implements Lista {
 	// Retorno da primeira metade da lista
 	@Override
 	public Lista getFirstHalf() {
-		// TODO Auto-generated method stub
+
+		DoubleLinkedNode lista = this.inicio;
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		ListaDuplamenteEncadeada nova = new ListaDuplamenteEncadeada();
+		for (int i = 0; i <= metade; i++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProximo();
+		}
+		nova.ler();
+
 		return null;
 	}
 
 	// Retorno da segunda metade da lista
 	@Override
 	public Lista getSecondHalf() {
-		// TODO Auto-generated method stub
+
+		DoubleLinkedNode lista = this.inicio;
+		ListaDuplamenteEncadeada nova = new ListaDuplamenteEncadeada();
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		for (int i = 0; i < metade; i++) {
+			lista = lista.getProximo();
+		}
+
+		// System.out.println(lista.getElemento());
+
+		for (int j = metade; j < size(); j++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProximo();
+		}
+
+		nova.ler();
+
 		return null;
 	}
 
@@ -207,8 +244,27 @@ public class ListaDuplamenteEncadeada implements Lista {
 	// na lista
 	@Override
 	public boolean contains(Object obj) {
-		// TODO Auto-generated method stub
+
+		DoubleLinkedNode aux = this.inicio;
+
+		while (aux != null) {
+			if (aux.getElemento().equals(obj)) {
+				return true;
+			}
+			aux = aux.getProximo();
+		}
 		return false;
+	}
+
+	public String toString() {
+
+		DoubleLinkedNode aux = this.inicio;
+
+		while (aux != aux.getProximo()) {
+			aux = aux.getProximo();
+		}
+
+		return "" + aux;
 	}
 
 }
