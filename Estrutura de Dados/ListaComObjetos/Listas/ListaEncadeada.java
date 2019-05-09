@@ -1,5 +1,5 @@
 
-public class ListaEncadeada implements Lista {
+public class ListaEncadeada implements Lista, Comparable {
 
 	/*
 	 * Kleber Meira
@@ -168,25 +168,31 @@ public class ListaEncadeada implements Lista {
 	public void sort() {
 		
 		Node lista = this.inicio;
-		//quickSort(lista, this.inicio , size()-1);
+		quickSort(lista, 0 , size()-1);
 
 	}
-	/*
-	public void quickSort(Object vet, Node inicio, int fim) {
-
-		int i = partition(vet, inicio, fim);
+	@Override
+	public int compareTo(Object elemento) {
+			Node lista = this.inicio;
+			
+			return 0;
+	}
+	
+	public void quickSort(Node lista, int inicio, int fim) {
+ 	/*
+		int i = partition(lista, inicio, fim);
 
 		if (inicio < i - 1) {
-			quickSort(vet, inicio, i - 1);
+			quickSort(lista, inicio, i - 1);
 		}
 
 		if (i < fim) {
-			quickSort(vet, i, fim);
+			quickSort(lista, i, fim);
 		}
-
+	*/
 	}
-
-	public int partition(Object a, int inicio, int fim) {
+/*
+	public int partition(Node a, int inicio, int fim) {
 
 		int i = inicio;
 		int j = fim;
@@ -195,7 +201,7 @@ public class ListaEncadeada implements Lista {
 
 		while (i <= j) {
 
-			while (a[i] < pivot) {
+			while (a. < pivot) {
 				i++;
 			}
 
@@ -320,4 +326,6 @@ public class ListaEncadeada implements Lista {
 
 		return " Elementos: ";
 	}
+
+	
 }
