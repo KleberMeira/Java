@@ -5,20 +5,7 @@ public class No {
 	private No anterior;
 	private Object elemento;
 
-	public No() {
-
-	}
-
-	public No(No proximo, No anterior, Object elemento) {
-		this.proximo = proximo;
-		this.anterior = anterior;
-		this.elemento = elemento;
-	}
-
-	public No(Object elemento) {
-		this.elemento = elemento;
-	}
-
+	
 	public No getProximo() {
 		return proximo;
 	}
