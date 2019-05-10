@@ -39,13 +39,14 @@ public class ListaDePrioridades implements Lista {
 		PriorityNode p;
 		int tamanho = size() - 1;
 
-		for (int i = 0; i < tamanho; i++) {
+		for (int i = 0; i < tamanho-1; i++) {
 			aux = aux.getProx();
 		}
 
-		p = aux;
+		p = aux.getProx();
 		aux.setProx(aux.getProx().getProx());
 		return p.getElemento();
+		
 	}
 
 	@Override
@@ -56,8 +57,27 @@ public class ListaDePrioridades implements Lista {
 
 	@Override
 	public Object remove(int pos) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PriorityNode p = this.inicio;
+		PriorityNode q;
+
+		if (pos > size()) {
+			return null;
+		} else if (pos == 0) {
+			q = p;
+			this.inicio = p.getProx();
+			return q.getElemento();
+		} else {
+
+			for (int i = 0; i < pos - 1; i++) {
+				p = p.getProx();
+			}
+			q = p;
+			p.setProx(p.getProx().getProx());
+			return q.getElemento();
+
+		}
+
 	}
 
 	@Override
@@ -77,7 +97,7 @@ public class ListaDePrioridades implements Lista {
 
 	@Override
 	public void sort() {
-		System.out.println(" Está Lista é por natureza ordenada! ");
+		System.out.println(" Estï¿½ Lista ï¿½ por natureza ordenada! ");
 
 	}
 
@@ -146,8 +166,8 @@ public class ListaDePrioridades implements Lista {
 			if (this.inicio == null) {
 				this.inicio = nova;
 				return true;
-			} else if (this.inicio.getPrioridade() < nova.getPrioridade()) {
-				nova.setProx(this.inicio);
+			} else if (this.inicio.getPrioridade() <= nova.getPrioridade()) {
+				nova.setProx(inicio);
 				inicio = nova;
 				return true;
 			}

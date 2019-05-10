@@ -29,7 +29,8 @@ public class Teste2 {
 		lista.insertInOrder(81, 5);
 		lista.insertInOrder(92, 3);
 		lista.insertInOrder(100, 100);
-		lista.insertInOrder(99, 10);
+		lista.insertInOrder(100, 100);
+	
 		lista.ler();
 		System.out.println();
 		System.out.println();
@@ -41,23 +42,23 @@ public class Teste2 {
 		System.out.println();
 		System.out.println();
 		
-		//Voltar aqui
 		System.out.println("--Remove no final e retorna--");
-		//System.out.println("**Objeto removido: " + lista.removeLast());
+		System.out.println("**Objeto removido: " + lista.removeLast());
 		lista.ler();
 		System.out.println();
 		System.out.println();
 		
 		//Voltar aqui
 		System.out.println("--Remove em uma posicao e retorna--");
-		lista.remove(1);
+		System.out.println("**Objeto da removido: " + lista.remove(1));
+		lista.ler();
 		System.out.println();
 		System.out.println();
 		
 		
 		System.out.println("--Retorna Object da posicao--");
 		System.out.println("**Objeto da posicao: " + lista.peek(0));
-		System.out.println("**Objeto da posicao: " + lista.peek(2));
+		System.out.println("**Objeto da posicao: " + lista.peek(1));
 		lista.ler();
 		System.out.println();
 		System.out.println();
@@ -89,7 +90,7 @@ public class Teste2 {
 		System.out.println();
 		System.out.println();
 		
-		System.out.println("A lista está vazia? :" + lista.isEmpty());
+		System.out.println("A lista estï¿½ vazia? :" + lista.isEmpty());
 		System.out.println();
 		System.out.println();
 		
