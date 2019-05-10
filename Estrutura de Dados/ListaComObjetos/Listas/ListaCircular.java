@@ -9,8 +9,32 @@ public class ListaCircular implements Lista {
 
 	@Override
 	public boolean insert(Object obj) {
-
-		return false;
+		
+		No nova = new No();
+		nova.setElemento(obj);
+		
+		if(isEmpty()) {
+			nova.setProximo(nova);
+			nova.setAnterior(nova);
+			inicio = nova;
+			return true;
+		}
+		else {
+			No aux = this.inicio;
+			while(aux.getProximo() != inicio) {
+				aux = aux.getProximo();
+			}
+			
+			aux.setProximo(nova);
+			nova.setAnterior(aux);
+			nova.setProximo(inicio);
+			inicio = nova;
+			
+			return true;
+			
+		}
+		
+		
 	}
 
 	@Override
@@ -21,17 +45,18 @@ public class ListaCircular implements Lista {
 		} else {
 
 			No aux = this.inicio;
+			No remove;
 			while (aux.getProximo() != inicio) {
 				aux = aux.getProximo();
 			}
-
+			remove = inicio;
 			aux.setProximo(aux.getProximo().getProximo());
 			inicio = inicio.getProximo();
 			inicio.setAnterior(aux);
-
+			return remove.getElemento();
 		}
 
-		return null;
+		
 	}
 
 	@Override
@@ -88,14 +113,59 @@ public class ListaCircular implements Lista {
 	@Override
 
 	public boolean insert(int pos, Object obj) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		No nova = new No();
+		nova.setElemento(obj);
+
+		if (pos > size()) {
+			return false;
+		} else if (pos == 0) {
+			insert(obj);//Voltar p/verificar inserir na pos 0
+			return true;
+		} else {
+			No p = this.inicio;
+			No q = p.getProximo();
+
+			for (int i = 0; i < pos - 1; i++) {
+				p = p.getProximo();
+				q = q.getProximo();
+			}
+
+			p.setProximo(nova);
+			nova.setAnterior(p);
+			nova.setProximo(q);
+			q.setAnterior(nova);
+			return true;
+		}
+	
 	}
 
 	@Override
 	public Object remove(int pos) {
 
-		return null;
+		No p = this.inicio;
+		No q = p.getProximo();
+		No aux;
+
+		if (pos == 0) {
+			aux = p;
+			this.inicio = inicio.getProximo();
+			return aux.getElemento();
+
+		} else if (pos > size()) {
+			return null;
+		} else {
+			for (int i = 0; i < pos - 1; i++) {
+				p = p.getProximo();
+				q = q.getProximo();
+			}
+
+			aux = q;
+			p.setProximo(p.getProximo().getProximo());
+			q.setAnterior(p);
+			return aux.getElemento();
+		}
+	
 	}
 
 	@Override
@@ -181,7 +251,7 @@ public class ListaCircular implements Lista {
 			original = original.getProximo();
 		}
 		
-		for(int j = metade; j < size()-1; j++) {
+		for(int j = metade; j < size(); j++) {
 			nova2.insertLast(original.getElemento());
 			original = original.getProximo();
 		}
