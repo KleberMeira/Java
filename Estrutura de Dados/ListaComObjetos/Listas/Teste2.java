@@ -33,6 +33,21 @@ public class Teste2 {
 		System.out.println();
 		cLista.remove();
 		cLista.lerCircular();
+		System.out.println();
+		System.out.println(cLista.peek(1));
+		System.out.println();
+		cLista.invert();
+		System.out.println();
+		System.out.println("Contém? " + cLista.contains(18));
+		System.out.println();
+		cLista.insertLast(10);
+		cLista.insertLast(29);
+		cLista.insertLast(33);
+		cLista.lerCircular();
+		System.out.println();
+		cLista.getFirstHalf();
+		System.out.println();
+		cLista.getSecondHalf();
 		
 	}
 

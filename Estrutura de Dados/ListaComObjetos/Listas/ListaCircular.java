@@ -24,7 +24,7 @@ public class ListaCircular implements Lista {
 			while (aux.getProximo() != inicio) {
 				aux = aux.getProximo();
 			}
-			
+
 			aux.setProximo(aux.getProximo().getProximo());
 			inicio = inicio.getProximo();
 			inicio.setAnterior(aux);
@@ -94,14 +94,28 @@ public class ListaCircular implements Lista {
 
 	@Override
 	public Object remove(int pos) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public Object peek(int pos) {
-		// TODO Auto-generated method stub
-		return null;
+
+		int buscar = 0;
+		No aux = this.inicio;
+
+		if (pos > size()) {
+			return null;
+		} else if (pos == 0) {
+			return aux.getElemento();
+		} else {
+
+			for (int i = 0; i < pos; i++) {
+				aux = aux.getProximo();
+			}
+		}
+
+		return aux.getElemento();
 	}
 
 	@Override
@@ -112,7 +126,12 @@ public class ListaCircular implements Lista {
 
 	@Override
 	public void invert() {
-		// TODO Auto-generated method stub
+
+		No invert = this.inicio;
+		while (invert.getAnterior() != inicio) {
+			System.out.print(" " + invert.getElemento() + " ");
+			invert = invert.getAnterior();
+		}
 
 	}
 
@@ -137,13 +156,38 @@ public class ListaCircular implements Lista {
 
 	@Override
 	public Lista getFirstHalf() {
-		// TODO Auto-generated method stub
+		
+		No original = this.inicio;
+		int metade = (size()/2);
+		ListaCircular nova1 = new ListaCircular();
+		
+		for(int i = 0; i <= metade; i++) {
+			nova1.insertLast(original.getElemento());
+			original = original.getProximo();
+		}
+		
+		nova1.lerCircular();
 		return null;
 	}
 
 	@Override
 	public Lista getSecondHalf() {
-		// TODO Auto-generated method stub
+		
+		No original = this.inicio;
+		int metade = (size()/2);
+		ListaCircular nova2 = new ListaCircular();
+		
+		for(int i = 0; i <= metade; i++) {
+			original = original.getProximo();
+		}
+		
+		for(int j = metade; j < size()-1; j++) {
+			nova2.insertLast(original.getElemento());
+			original = original.getProximo();
+		}
+		
+		nova2.lerCircular();
+		
 		return null;
 	}
 
@@ -154,7 +198,16 @@ public class ListaCircular implements Lista {
 
 	@Override
 	public boolean contains(Object obj) {
-		// TODO Auto-generated method stub
+
+		No aux = this.inicio;
+
+		for (int i = 0; i < size(); i++) {
+			if (aux.getElemento().equals(obj)) {
+				return true;
+			}
+			aux = aux.getProximo();
+		}
+
 		return false;
 	}
 
