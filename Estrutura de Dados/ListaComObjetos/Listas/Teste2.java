@@ -90,7 +90,7 @@ public class Teste2 {
 		System.out.println();
 		System.out.println();
 		
-		System.out.println("A lista est� vazia? :" + lista.isEmpty());
+		System.out.println("A lista esta vazia? :" + lista.isEmpty());
 		System.out.println();
 		System.out.println();
 		

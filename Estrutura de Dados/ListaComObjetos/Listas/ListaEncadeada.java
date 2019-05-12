@@ -1,5 +1,5 @@
 
-public class ListaEncadeada implements Lista, Comparable {
+public class ListaEncadeada implements Lista {
 
 	/*
 	 * Kleber Meira
@@ -171,12 +171,7 @@ public class ListaEncadeada implements Lista, Comparable {
 		quickSort(lista, 0 , size()-1);
 
 	}
-	@Override
-	public int compareTo(Object elemento) {
-			Node lista = this.inicio;
-			
-			return 0;
-	}
+
 	
 	public void quickSort(Node lista, int inicio, int fim) {
  	/*

@@ -97,13 +97,26 @@ public class ListaDePrioridades implements Lista {
 
 	@Override
 	public void sort() {
-		System.out.println(" Est� Lista � por natureza ordenada! ");
+		System.out.println(" Esta Lista esta por natureza ordenada! ");
 
 	}
 
 	@Override
 	public void invert() {
-		// TODO Auto-generated method stub
+		PriorityNode p = this.inicio;
+		PriorityNode q = p.getProx();
+		PriorityNode atual = p;
+
+		while (p != null) {
+			q.setProx(p);
+			p = p.getProx();
+			q = q.getProx();
+			atual = atual.getProx();
+			System.out.print("" + p.getElemento() + "");
+		}
+
+		this.inicio = atual;
+
 
 	}
 
@@ -123,13 +136,40 @@ public class ListaDePrioridades implements Lista {
 
 	@Override
 	public Lista getFirstHalf() {
-		// TODO Auto-generated method stub
+		
+		PriorityNode lista = this.inicio;
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		ListaEncadeada nova = new ListaEncadeada();
+		for (int i = 0; i <= metade; i++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProx();
+		}
+		nova.listar();
+		
 		return null;
 	}
 
 	@Override
 	public Lista getSecondHalf() {
-		// TODO Auto-generated method stub
+		
+		PriorityNode lista = this.inicio;
+		ListaEncadeada nova = new ListaEncadeada();
+		int metade = (size() - 1) / 2;
+		// System.out.println(metade);
+		for (int i = 0; i < metade; i++) {
+			lista = lista.getProx();
+		}
+
+		// System.out.println(lista.getElemento());
+
+		for (int j = metade; j < size(); j++) {
+			nova.insertLast(lista.getElemento());
+			lista = lista.getProx();
+		}
+
+		nova.listar();
+		
 		return null;
 	}
 
