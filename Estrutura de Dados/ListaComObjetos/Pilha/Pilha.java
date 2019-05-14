@@ -1,28 +1,10 @@
 
-public class Pilha {
+public interface Pilha {
 
-	Pessoa[] pessoas = new Pessoa[3];
+	boolean empilha(Object e);
+	Object desempilha();
+	boolean isEmpty();
 	
-	private int tamanho = -1;
 	
-	public int getTamanho() {
-		return tamanho;
-	}
-
-	public void empilha(Pessoa pessoa) {
-		tamanho++;
-		this.pessoas[tamanho] = pessoa;
-	}
-
-	public void desempilha() {
-		
-	}
 	
-	public boolean isEmpty() {
-		if(tamanho < 0) {
-			return true;
-		}
-		return false;
-	}
-
 }

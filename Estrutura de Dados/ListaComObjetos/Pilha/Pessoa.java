@@ -11,6 +11,12 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 	
+	public Pessoa(Pessoa p) {
+		this.nome = p.getNome();
+		this.idade = p.getIdade();
+		this.cpf = p.getCpf();
+	}
+	
 	public Pessoa() {
 		
 	}
@@ -39,4 +45,10 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
+	public String toString() {
+		return "Nome: " + getNome() +
+			   "Idade: " + getIdade()+
+			   "Cpf: " + getCpf();
+	}
+	
 }
