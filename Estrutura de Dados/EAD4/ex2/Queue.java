@@ -1,4 +1,4 @@
-package ex2;
+package pack2;
 
 public interface Queue {
 
@@ -8,7 +8,7 @@ public interface Queue {
 	Object dequeue();
 	// Apenas retorna o objeto no inicio da fila
 	Object peek();
-	// Verifica se a fila est ́a vazia
+	// Verifica se a fila est Ì�a vazia
 	boolean isEmpty();
 	// Retorna o tamanho da fila
 	int size();
