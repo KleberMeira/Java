@@ -1,13 +1,17 @@
 
 public class StackArray implements Stack {
 
+	//Funcionando 
+	
 	private Object[] vetor;
 	private int pos;
+	private int tamanho;
 	
 
 	public StackArray() {
 		this.vetor = new Object[6];
 		this.pos = -1;
+		this.tamanho = 0;
 	}
 
 	// --------------------------->
@@ -25,6 +29,7 @@ public class StackArray implements Stack {
 		
 		if(pos < this.vetor.length) {
 			this.vetor[++pos] = value;
+			this.tamanho++;
 			return true;
 		}
 		
@@ -39,6 +44,7 @@ public class StackArray implements Stack {
 		}
 		
 		else {
+			this.tamanho--;
 			return this.vetor[pos--];
 		}
 	}
@@ -65,7 +71,7 @@ public class StackArray implements Stack {
 
 	@Override
 	public int size() {
-		return this.vetor.length;
+		return this.tamanho;
 	}
 
 }

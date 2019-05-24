@@ -1,4 +1,3 @@
-package pack2;
 
 public interface Queue {
 
