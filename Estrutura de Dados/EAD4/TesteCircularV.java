@@ -4,6 +4,8 @@ public class TesteCircularV {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		/*
+		//FILA EM VETOR
 		CircularArrayQueue e = new CircularArrayQueue();
 		System.out.println("Lista vazia? " + e.isEmpty());
 		System.out.println(e.enqueue(12));
@@ -24,7 +26,61 @@ public class TesteCircularV {
 		System.out.println("Tamanho: " + e.size());
 		
 		System.out.println("Finalizado");
+		*/
 		
+		/*
+		//FILA ENCADEADA
+		LinkedQueue lk = new LinkedQueue();
+		lk.enqueue(1);
+		lk.enqueue(2);
+		lk.enqueue(3);
+		
+		lk.mostrar();
+		
+		
+		System.out.println("Removido: "+ lk.dequeue());
+		
+		System.out.println("Elemento do inicio: " + lk.peek());
+		
+		lk.mostrar();
+		System.out.println("Esta vazia? " + lk.isEmpty());
+		System.out.println("Tamanho: " + lk.size());
+		*/
+		
+		//DEQUE QUEUE
+		LinkedDeque d = new LinkedDeque();
+		
+		d.insertLeft(1);
+		d.insertLeft(2);
+		d.insertLeft(3);
+		
+		d.imprime();
+		
+		System.out.println("Elemento removido: " + d.removeLeft());
+		d.imprime();
+		
+		
+		d.insertRight(4);
+		d.insertRight(5);
+		
+		d.imprime();
+		
+		//Voltar aqui
+		System.out.println("Elemento removido: " + d.removeRight());
+		System.out.println("Elemento removido: " + d.removeRight());
+		
+		d.imprime();
+		
+		
+		
+		
+		
+	
 	}
+	
+	
+	
+	
+	
 
 }
