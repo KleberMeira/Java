@@ -53,23 +53,19 @@ public class TesteCircularV {
 		d.insertLeft(1);
 		d.insertLeft(2);
 		d.insertLeft(3);
-		
 		d.imprime();
-		
-		System.out.println("Elemento removido: " + d.removeLeft());
-		d.imprime();
-		
 		
 		d.insertRight(4);
 		d.insertRight(5);
-		
+		d.insertRight(6);
 		d.imprime();
 		
-		//Voltar aqui
-		System.out.println("Elemento removido: " + d.removeRight());
-		System.out.println("Elemento removido: " + d.removeRight());
-		
+		d.removeLeft();
 		d.imprime();
+		
+		d.removeRight();
+		d.imprime();
+		
 		
 		
 		

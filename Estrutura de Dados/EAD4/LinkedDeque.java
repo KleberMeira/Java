@@ -49,13 +49,14 @@ public class LinkedDeque {
 			return null;
 		}
 		
-		else {
+		else{
 			
 			Node aux = this.left;
 			
 			this.left = left.getProx();
 			return aux.getElemento();
 		}
+		
 	}
 	
 	public boolean insertRight(Object value) {
@@ -87,24 +88,47 @@ public class LinkedDeque {
 		
 		
 	}
-	
-	//Voltar aqui, corrigir remocao no final nao valida
+
 	public Object removeRight() {
 
 		Node aux = this.left;
-		Node p = aux.getProx().getProx();
-		Node removido;
 		
-		while(p != null) {
-			p = p.getProx();
-			aux = aux.getProx();
+		if(this.rigth == null) {
+			return null;
 		}
 		
-		removido = this.rigth;
-		this.rigth = aux;
-		aux.setProx(aux.getProx().getProx());
+		else if(size() == 1) {
+			this.rigth = rigth.getProx();
+			return aux.getElemento();
+		}
 		
-		return aux.getElemento();
+		else {
+			Node p;
+
+			int tam = size()-1;
+			for (int i = 0; i < tam - 1; i++) {
+				aux = aux.getProx();
+			}
+
+			p = aux.getProx();
+			aux.setProx(aux.getProx().getProx());
+
+			return p.getElemento();
+
+			
+		}
+		
+	}
+	
+	public int size() {
+		
+		int cont = 0;
+		Node aux = this.left;
+		while(aux != null) {
+			aux = aux.getProx();
+			cont++;
+		}
+		return cont;
 	}
 	
 	
