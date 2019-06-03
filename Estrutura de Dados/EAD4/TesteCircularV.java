@@ -66,11 +66,6 @@ public class TesteCircularV {
 		d.removeRight();
 		d.imprime();
 		
-		
-		
-		
-		
-		
 	
 	}
 	

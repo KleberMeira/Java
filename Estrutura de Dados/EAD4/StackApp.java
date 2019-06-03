@@ -53,6 +53,25 @@ public class StackApp {
 		System.out.println("Topo: " + st.top());
 		System.out.println("Tamanho: " + st.size());
 		
+		bemFormada("wow-turo", sa);
+		
+	}
+	
+	
+	public static boolean bemFormada(String sequencia, Stack pilha) {
+		
+		for(int i = 0; i < sequencia.length(); i++) {
+			//System.out.println(sequencia.charAt(i));
+			pilha.push(sequencia.charAt(i));
+			
+		}
+		
+		
+		return false;
+	}
+	
+	public static String inverte(String  palavra, Stack  pilha) {
+		return null;
 	}
 
 }
