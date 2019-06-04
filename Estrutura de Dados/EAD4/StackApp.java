@@ -53,7 +53,8 @@ public class StackApp {
 		System.out.println("Topo: " + st.top());
 		System.out.println("Tamanho: " + st.size());
 		
-		bemFormada("wow-turo", sa);
+		System.out.println(bemFormada("[(([]]", sa));
+		inverte("Kleber ", st);
 		
 	}
 	
@@ -62,15 +63,35 @@ public class StackApp {
 		
 		for(int i = 0; i < sequencia.length(); i++) {
 			//System.out.println(sequencia.charAt(i));
-			pilha.push(sequencia.charAt(i));
+			if(sequencia.charAt(i) == '(' || sequencia.charAt(i) == '[') {
+				pilha.push(sequencia.charAt(i));
+			}
+			else if(sequencia.charAt(i) == ')' || sequencia.charAt(i) == ']') {
+				if(!pilha.isEmpty()) {
+					pilha.pop();
+				}
+			}
 			
+		}
+		
+		if(pilha.isEmpty()) {
+			return true;
 		}
 		
 		
 		return false;
 	}
 	
-	public static String inverte(String  palavra, Stack  pilha) {
+	public static String inverte(String  palavra, Stack pilha) {
+		
+		for(int i = 0; i < palavra.length(); i++) {
+			pilha.push(palavra.charAt(i));
+		}
+		
+		for(int j = 0; j < palavra.length(); j++) {
+			System.out.println(pilha.pop());
+		}
+		
 		return null;
 	}
 

@@ -9,7 +9,7 @@ public class StackArray implements Stack {
 	
 
 	public StackArray() {
-		this.vetor = new Object[8];
+		this.vetor = new Object[6];
 		this.pos = -1;
 		this.tamanho = 0;
 	}
