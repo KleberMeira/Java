@@ -53,12 +53,23 @@ public class StackApp {
 		System.out.println("Topo: " + st.top());
 		System.out.println("Tamanho: " + st.size());
 		
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("Expressão balanceada");
 		StackArray bf = new StackArray();
-		System.out.println(bemFormada("[(([]]", bf));
+		System.out.println(bemFormada(0, "[(([]", bf));
 		
 		System.out.println();
-		System.out.println(inverte("", st));
+		System.out.println();
 		
+		/*
+		System.out.println("Inversao Recursiva ");
+		System.out.println();
+		System.out.println(inverte(0, "Kleber", st));
+		*/
 		
 		
 	}
@@ -66,18 +77,29 @@ public class StackApp {
 	
 	public static boolean bemFormada(int cont, String sequencia, Stack pilha) {
 		
-		char[] vetor = sequencia.toCharArray();
 		
-		if(vetor.length % 2 != 0) {
+		if(sequencia.length() % 2 == 0) {
 			return false;
 		}
 		
 		else if(cont < sequencia.length()) {
 			
 			pilha.push(sequencia.charAt(cont));
+			
+			if(sequencia.charAt(cont) == ')' || sequencia.charAt(cont) == ']') {
+				pilha.pop();
+			}
+			
+			if(pilha.isEmpty()) {
+				return true;
+			}
+			bemFormada(cont++, sequencia, pilha);
+
 		}
+		
+		return false;
 				
-		bemFormada(cont++, sequencia, pilha);
+		
 		
 		
 		/*
@@ -98,33 +120,35 @@ public class StackApp {
 			return true;
 		}
 		*/
-		
-		return true;
 	}
 	
-	public static String inverte(String palavra, Stack pilha) {
+	public static String[] invertida;
+	public static String[] inverte(int cont, String palavra, Stack pilha) {
 		
-		System.out.println("Tamanho da palavra: " + palavra.length());
+		//System.out.println("Tamanho da palavra: " + palavra.length());
 		
-		/*
-		if(palavra) {
-			return " palavra invalida ";
+		if(cont < palavra.length()) {
+			pilha.push(palavra.charAt(cont++));
+			
+			System.out.println("Empilhado");
+			
+			inverte(cont, palavra, pilha);
 		}
+
 		
 		else {
-			
+			if(cont == 100) {
+				invertida[cont] = (String) pilha.pop();
+				System.out.println("Desempilhado");
+				
+				inverte(cont--, palavra, pilha);
+				
+			}
 		}
-		*/
-		
-		for(int i = 0; i < palavra.length(); i++) {
-			pilha.push(palavra.charAt(i));
-		}
-		
-		for(int j = 0; j < palavra.length(); j++) {
-			System.out.println(pilha.pop());
-		}
-		
-		return null;
+
+		return invertida ;
 	}
+	
+	
 
 }

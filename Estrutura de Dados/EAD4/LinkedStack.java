@@ -66,7 +66,6 @@ public class LinkedStack implements Stack {
 	public Object pop() {
 
 		Node aux = this.inicio;
-		Node p = aux.getProx();
 		
 		if(this.tamanho == 1) {//quando tem apenas um elemento
 			this.inicio = null;
@@ -75,6 +74,7 @@ public class LinkedStack implements Stack {
 		}
 		
 		else {
+			Node p = aux.getProx();
 			while (p.getProx() != null) {
 				p = p.getProx();
 				aux = aux.getProx();
