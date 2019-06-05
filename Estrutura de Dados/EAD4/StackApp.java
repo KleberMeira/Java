@@ -53,14 +53,34 @@ public class StackApp {
 		System.out.println("Topo: " + st.top());
 		System.out.println("Tamanho: " + st.size());
 		
-		System.out.println(bemFormada("[(([]]", sa));
-		inverte("Kleber ", st);
+		StackArray bf = new StackArray();
+		System.out.println(bemFormada("[(([]]", bf));
+		
+		System.out.println();
+		System.out.println(inverte("", st));
+		
+		
 		
 	}
 	
 	
-	public static boolean bemFormada(String sequencia, Stack pilha) {
+	public static boolean bemFormada(int cont, String sequencia, Stack pilha) {
 		
+		char[] vetor = sequencia.toCharArray();
+		
+		if(vetor.length % 2 != 0) {
+			return false;
+		}
+		
+		else if(cont < sequencia.length()) {
+			
+			pilha.push(sequencia.charAt(cont));
+		}
+				
+		bemFormada(cont++, sequencia, pilha);
+		
+		
+		/*
 		for(int i = 0; i < sequencia.length(); i++) {
 			//System.out.println(sequencia.charAt(i));
 			if(sequencia.charAt(i) == '(' || sequencia.charAt(i) == '[') {
@@ -77,12 +97,24 @@ public class StackApp {
 		if(pilha.isEmpty()) {
 			return true;
 		}
+		*/
 		
-		
-		return false;
+		return true;
 	}
 	
-	public static String inverte(String  palavra, Stack pilha) {
+	public static String inverte(String palavra, Stack pilha) {
+		
+		System.out.println("Tamanho da palavra: " + palavra.length());
+		
+		/*
+		if(palavra) {
+			return " palavra invalida ";
+		}
+		
+		else {
+			
+		}
+		*/
 		
 		for(int i = 0; i < palavra.length(); i++) {
 			pilha.push(palavra.charAt(i));
