@@ -58,18 +58,21 @@ public class StackApp {
 		System.out.println();
 		System.out.println();
 		
-		System.out.println("Expressão balanceada");
+		/*
+		System.out.println("Expressï¿½o balanceada");
 		StackArray bf = new StackArray();
 		System.out.println(bemFormada(0, "[(([]", bf));
 		
 		System.out.println();
 		System.out.println();
+		*/
 		
-		/*
+		
 		System.out.println("Inversao Recursiva ");
 		System.out.println();
 		System.out.println(inverte(0, "Kleber", st));
-		*/
+		System.out.println("Certo meu garoto!");
+		
 		
 		
 	}
@@ -98,54 +101,24 @@ public class StackApp {
 		}
 		
 		return false;
-				
-		
-		
-		
-		/*
-		for(int i = 0; i < sequencia.length(); i++) {
-			//System.out.println(sequencia.charAt(i));
-			if(sequencia.charAt(i) == '(' || sequencia.charAt(i) == '[') {
-				pilha.push(sequencia.charAt(i));
-			}
-			else if(sequencia.charAt(i) == ')' || sequencia.charAt(i) == ']') {
-				if(!pilha.isEmpty()) {
-					pilha.pop();
-				}
-			}
-			
-		}
-		
-		if(pilha.isEmpty()) {
-			return true;
-		}
-		*/
 	}
 	
+	public static int p = 5;
 	public static String[] invertida;
 	public static String[] inverte(int cont, String palavra, Stack pilha) {
 		
 		//System.out.println("Tamanho da palavra: " + palavra.length());
 		
 		if(cont < palavra.length()) {
-			pilha.push(palavra.charAt(cont++));
+			pilha.push(palavra.charAt(cont));
 			
 			System.out.println("Empilhado");
+			System.out.println("Elemento: " + pilha.top());
 			
-			inverte(cont, palavra, pilha);
+			inverte(++cont, palavra, pilha);
 		}
-
 		
-		else {
-			if(cont == 100) {
-				invertida[cont] = (String) pilha.pop();
-				System.out.println("Desempilhado");
-				
-				inverte(cont--, palavra, pilha);
-				
-			}
-		}
-
+		
 		return invertida ;
 	}
 	
