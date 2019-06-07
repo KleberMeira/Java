@@ -1,11 +1,17 @@
 
+/*
+ * Autor: Kleber Meira
+ * Engenharia de Software/Ufms/Facom
+ */
+
 public class TesteCircularV {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		/*
+		System.out.println();
 		//FILA EM VETOR
+		System.out.println("---FILA EM VETOR---");
 		CircularArrayQueue e = new CircularArrayQueue();
 		System.out.println("Lista vazia? " + e.isEmpty());
 		System.out.println(e.enqueue(12));
@@ -26,9 +32,11 @@ public class TesteCircularV {
 		System.out.println("Tamanho: " + e.size());
 		
 		System.out.println("Finalizado");
-		*/
 		
-		/*
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("---FILA ENCADEADA---");
 		//FILA ENCADEADA
 		LinkedQueue lk = new LinkedQueue();
 		lk.enqueue(1);
@@ -45,8 +53,10 @@ public class TesteCircularV {
 		lk.mostrar();
 		System.out.println("Esta vazia? " + lk.isEmpty());
 		System.out.println("Tamanho: " + lk.size());
-		*/
-		
+	
+		System.out.println();
+		System.out.println();
+		System.out.println("---DEQUE---");
 		//DEQUE QUEUE
 		LinkedDeque d = new LinkedDeque();
 		

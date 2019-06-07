@@ -10,6 +10,8 @@ public class StackApp {
 		// TODO Auto-generated method stub
 		
 		//PILHA VETOR
+		System.out.println();
+		System.out.println("--PILHA EM VETOR---");
 		StackArray sa = new StackArray();
 		System.out.println("Esta vazia? " + sa.isEmpty());
 		sa.push(5);
@@ -28,6 +30,9 @@ public class StackApp {
 		System.out.println("Desempilhado: " + sa.pop());
 		System.out.println("Desempilhado: " + sa.pop());
 		
+		System.out.println();
+		System.out.println();
+		System.out.println("---PILHA ENCADEADA---");
 		
 		//PILHA ENCADEADA
 		LinkedStack st = new LinkedStack();
@@ -56,28 +61,30 @@ public class StackApp {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-		System.out.println();
+		System.out.println("---EXPRESSOES RECURSIVAS---");
 		
-		/*
-		System.out.println("Express�o balanceada");
+		
+		System.out.println("Expressao balanceada");
 		StackArray bf = new StackArray();
-		System.out.println(bemFormada(0, "[(([]", bf));
+		//Funcao balanceada apresenta erro, para verificar so descomentar
+		//System.out.println(bemFormada(0, "[(([]", bf));
 		
 		System.out.println();
 		System.out.println();
-		*/
+		
 		
 		
 		System.out.println("Inversao Recursiva ");
 		System.out.println();
 		System.out.println(inverte(0, "Kleber", st));
-		System.out.println("Certo meu garoto!");
+		//invetida2(5, "Kleber", st);
 		
 		
 		
 	}
 	
-	
+	//---------------------------------------------------------------------->
+	//Com erro
 	public static boolean bemFormada(int cont, String sequencia, Stack pilha) {
 		
 		
@@ -87,7 +94,7 @@ public class StackApp {
 		
 		else if(cont < sequencia.length()) {
 			
-			pilha.push(sequencia.charAt(cont));
+			pilha.push(sequencia.charAt(cont++));
 			
 			if(sequencia.charAt(cont) == ')' || sequencia.charAt(cont) == ']') {
 				pilha.pop();
@@ -96,13 +103,15 @@ public class StackApp {
 			if(pilha.isEmpty()) {
 				return true;
 			}
-			bemFormada(cont++, sequencia, pilha);
+			bemFormada(cont, sequencia, pilha);
 
 		}
 		
 		return false;
 	}
 	
+	
+	//Nao esta desempilhando
 	public static int p = 5;
 	public static String[] invertida;
 	public static String[] inverte(int cont, String palavra, Stack pilha) {
@@ -112,15 +121,26 @@ public class StackApp {
 		if(cont < palavra.length()) {
 			pilha.push(palavra.charAt(cont));
 			
-			System.out.println("Empilhado");
 			System.out.println("Elemento: " + pilha.top());
 			
 			inverte(++cont, palavra, pilha);
 		}
-		
-		
 		return invertida ;
 	}
+	
+	
+	public static String invetida2(int cont, String palavra2, Stack pilha) {
+		
+		if(cont > 0) {
+			palavra2+= pilha.pop();
+			invetida2(cont--, palavra2, pilha);
+		}
+		
+		return null;
+		
+		
+	}
+	//<----------------------------------------------------------------------------
 	
 	
 
