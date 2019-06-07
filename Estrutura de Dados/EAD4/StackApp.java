@@ -67,7 +67,7 @@ public class StackApp {
 		System.out.println("Expressao balanceada");
 		StackArray bf = new StackArray();
 		//Funcao balanceada apresenta erro, para verificar so descomentar
-		//System.out.println(bemFormada(0, "[(([]", bf));
+		System.out.println(bemFormada(0, "[(())]", bf));
 		
 		System.out.println();
 		System.out.println();
@@ -76,7 +76,7 @@ public class StackApp {
 		
 		System.out.println("Inversao Recursiva ");
 		System.out.println();
-		System.out.println(inverte(0, "Kleber", st));
+		//System.out.println(inverte(0, "Kleber", st));
 		//invetida2(5, "Kleber", st);
 		
 		
@@ -84,29 +84,31 @@ public class StackApp {
 	}
 	
 	//---------------------------------------------------------------------->
-	//Com erro
+	//Com alguns problemas
 	public static boolean bemFormada(int cont, String sequencia, Stack pilha) {
 		
-		
-		if(sequencia.length() % 2 == 0) {
-			return false;
+		if(cont == sequencia.length()) {
+			return true;
 		}
 		
-		else if(cont < sequencia.length()) {
-			
+		if(pilha.isEmpty()) {
+			System.out.println("Entrei vazia");
 			pilha.push(sequencia.charAt(cont++));
-			
-			if(sequencia.charAt(cont) == ')' || sequencia.charAt(cont) == ']') {
-				pilha.pop();
-			}
-			
-			if(pilha.isEmpty()) {
-				return true;
-			}
-			bemFormada(cont, sequencia, pilha);
-
 		}
 		
+		else {
+			if(pilha.top() == ")" || pilha.top() == "]" ) {
+				pilha.pop();
+				System.out.println("desempilhei");
+			}
+			else {
+				pilha.push(sequencia.charAt(cont++));
+				System.out.println("empilhei");
+			}
+		}
+		
+		bemFormada(cont, sequencia, pilha);
+
 		return false;
 	}
 	
