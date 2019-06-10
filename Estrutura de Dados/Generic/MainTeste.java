@@ -1,9 +1,11 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class MainTeste {
 	
@@ -52,7 +54,60 @@ public class MainTeste {
 		System.out.println("-Lista de Numeros-");
 		//System.out.println(numero);
 		OrdenadorDeLista sort = new OrdenadorDeLista();
-		sort.bubbleSort(numero);
+		//sort.bubbleSort(numero);
+		
+		///_------------------------------
+		System.out.println("**Exercicio 3**");
+		
+		Map<String, Integer> c = new HashMap<String, Integer>();
+	
+		
+		String frase = "ana banana";
+
+		for(int i = 0; i < frase.length(); i++) {	
+			
+		}
+		
+		///_------------------------------
+		System.out.println("**Exercicio 5**");
+		
+		Seters cs = new Seters();
+		Set<Integer> set1 = new HashSet<Integer>();
+		Set<Integer> set2 = new HashSet<Integer>();
+		
+		set1.add(14);
+		set1.add(15);
+		set1.add(17);
+		set1.add(30);
+		
+		set2.add(14);
+		set2.add(17);
+		set2.add(22);
+		
+		//14, 17
+	
+		System.out.println("Uniao");
+		cs.SetUnion(set1, set2);
+		System.out.println();
+		System.out.println("Intersecao");
+		cs.SetIntersection(set1, set2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

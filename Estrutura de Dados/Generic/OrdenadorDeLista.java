@@ -4,28 +4,44 @@ public class OrdenadorDeLista implements Comparable<Integer> {
 
 	public void bubbleSort(List<Integer> lista ) {
 		
+		int tamanho = lista.size();
+		int temp;
 		
-		for(int i = 0; i < lista.size(); i++) {
-			for(int j = 1; j < i-1; j++) {
-				if(lista.get(i) > lista.get(j)) {
-					int aux = lista.get(i);
-					System.out.println("Num "+aux);
+		for(int it = 0; it < tamanho-1; it++) {
+			for(int pos = 0; pos < tamanho-it-1; pos++) {
+				System.out.println(pos);
+				if(lista.get(pos) > lista.get(pos+1)) {
+					temp = lista.get(pos);
+					
 				}
 			}
 		}
-		
-		System.out.println(lista.size());
-		
+	
 	}
-
+	
 
 	@Override
 	public int compareTo(Integer o) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	
 	
+	
+	/*
+	int temp;
+
+	for(int it = 0; it < vetor.length - 1; it ++){
+		for(int pos = 0; pos < vetor.length - it - 1; pos++){
+			if(vetor[pos] > vetor[pos+1]){
+				temp = vetor[pos];
+				vetor[pos] = vetor[pos+1];
+				vetor[pos+1] = temp;
+				//troca(vetor, pos, pos+1);	
+			}
+		}
+	}
+	*/
 	
 	
 }
