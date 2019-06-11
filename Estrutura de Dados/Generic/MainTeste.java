@@ -58,20 +58,17 @@ public class MainTeste {
 		
 		///_------------------------------
 		System.out.println("**Exercicio 3**");
+		Seters cs = new Seters();
 		
-		Map<String, Integer> c = new HashMap<String, Integer>();
+		String frase = "ana bananae";
+		System.out.println(cs.contar(frase));
 	
-		
-		String frase = "ana banana";
 
-		for(int i = 0; i < frase.length(); i++) {	
-			
-		}
-		
+		/*
 		///_------------------------------
 		System.out.println("**Exercicio 5**");
 		
-		Seters cs = new Seters();
+		
 		Set<Integer> set1 = new HashSet<Integer>();
 		Set<Integer> set2 = new HashSet<Integer>();
 		
@@ -91,7 +88,11 @@ public class MainTeste {
 		System.out.println();
 		System.out.println("Intersecao");
 		cs.SetIntersection(set1, set2);
+		System.out.println();
+		System.out.println("Diferenca");
+		cs.SetDifference(set1, set2);
 		
+		*/
 		
 		
 		
