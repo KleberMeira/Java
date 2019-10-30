@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -38,28 +39,37 @@ public class Main {
 	            	lista.insert();
 	            	System.out.println(" Partida Criada! ");
 	            	
-	            	System.out.println("Quantidade de jogadores: 5");
+	            	System.out.println("Quantidade de jogadores: 3");
 	            	
-	            	lista.jogar();
-	            	
-	            	
-	            	
-	            	
-	            	
-	            	
+	            	int inter = 1;
+	            	 while (inter <= lista.getJogadasPorJogador()) {
+	            		 
+	     	            for(int i = 1; i <= lista.getQuantJogador(); i++) {
+	     	            	System.out.println("Vez do jogador: " + i);
+	     	            	
+	     	            	System.out.println("\n\n(press. ENTER)");
+	     		            String s = scnS.nextLine();   
+	     		            
+	     		           Random gerar = new Random();
+	     		           num = gerar.nextInt(lista.getQuantElementos()+1);
+	     		           System.out.println("Numero gerado: " + num);
+	     		           
+	     		           lista.jogada(num, i);
+	     		           
+	
+		     	            } 
+		     	        }	
+		     	    }
 	            } 
 	            
-	            System.out.println("\n\n(press. ENTER)");
-	            String s = scnS.nextLine();
+	            
 
-	        }
+	        
 
 	        System.out.println("\n--------------------------------------------------");
 	        System.out.println("*** Obrigado e ate' breve ***");
-			
-	    }
-		
-		
-	}
-
+	}	
+}		
+	    
+	
 
