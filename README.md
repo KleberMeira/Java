@@ -1,2 +1,2 @@
 # Java
-Estudo praticos de Java Orientado a Objetos
+Estudo praticos de Java e Estruturas de Dados
